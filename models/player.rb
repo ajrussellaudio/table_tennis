@@ -1,8 +1,9 @@
 require_relative "../db/sql_runner"
 
 class Player
-  
-  attr_reader :id, :name
+
+  attr_accessor :name
+  attr_reader   :id
 
   def self.all()
     sql = "SELECT * FROM players;"
