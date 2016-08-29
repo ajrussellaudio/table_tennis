@@ -1,0 +1,19 @@
+<h3>Create New Game</h3>
+<form action="/game/new" method="post">
+<fieldset>
+  <legend>Create New Game</legend>
+  <label for="player1_id">Player 1:</label>
+  <select name="player1_id">
+    <% @players.each do |player| %>
+    <option value="<%= player.id %>"><%= player.name %></option>
+    <% end %>
+  </select>
+  <label for="player2_id">Player 2:</label>
+  <select name="player2_id">
+    <% @players.each do |player| %>
+    <option value="<%= player.id %>"><%= player.name %></option>
+    <% end %>
+  </select>
+  <input type="submit" value="Start Game">
+</fieldset> 
+</form>
