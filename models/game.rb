@@ -31,10 +31,10 @@ class Game
 
   def initialize( options )
     @id            = options['id'].to_i
-    @player1_id    = options['player1_id']
-    @player2_id    = options['player2_id']
-    @player1_score = options['player1_score']
-    @player2_score = options['player2_score']
+    @player1_id    = options['player1_id'].to_i
+    @player2_id    = options['player2_id'].to_i
+    @player1_score = options['player1_score'].to_i
+    @player2_score = options['player2_score'].to_i
   end
 
   def save()
@@ -51,6 +51,14 @@ class Game
       ) RETURNING * ;"
     game = Game.map_item( sql )
     @id = game.id
+  end
+
+  def player1()
+    return Player.find(@player1_id)
+  end
+
+  def player2()
+    return Player.find(@player2_id)
   end
 
 end
